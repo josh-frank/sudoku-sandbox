@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="stylesheet.css">
+        <title>Fludoku</title>
+    </head>
+
+    <body>
+
+        <table id="sudoku-board">
+            <tr class="row" data-row="0">
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="0,0" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="0,1" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="0,2" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="0,3" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="0,4" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="0,5" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="0,6" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="0,7" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="0,8" min="1" max="9"></input></td>
+            </tr>
+            <tr class="row" data-row="1">
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="1,0" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="1,1" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="1,2" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="1,3" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="1,4" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="1,5" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="1,6" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="1,7" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="1,8" min="1" max="9"></input></td>
+            </tr>
+            <tr class="row" data-row="2">
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="2,0" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="2,1" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="2,2" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="2,3" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="2,4" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="2,5" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="2,6" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="2,7" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="2,8" min="1" max="9"></input></td>
+            </tr>
+            <tr class="row" data-row="3">
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="3,0" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="3,1" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="3,2" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="3,3" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="3,4" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="3,5" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="3,6" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="3,7" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="3,8" min="1" max="9"></input></td>
+            </tr>
+            <tr class="row" data-row="4">
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="4,0" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="4,1" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="4,2" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="4,3" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="4,4" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="4,5" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="4,6" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="4,7" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="4,8" min="1" max="9"></input></td>
+            </tr>
+            <tr class="row" data-row="5">
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="5,0" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="5,1" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="5,2" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="5,3" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="5,4" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="5,5" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="5,6" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="5,7" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="5,8" min="1" max="9"></input></td>
+            </tr>
+            <tr class="row" data-row="6">
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="6,0" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="6,1" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="6,2" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="6,3" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="6,4" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="6,5" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="6,6" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="6,7" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="6,8" min="1" max="9"></input></td>
+            </tr>
+            <tr class="row" data-row="7">
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="7,0" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="7,1" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="7,2" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="7,3" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="7,4" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="7,5" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="7,6" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="7,7" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="7,8" min="1" max="9"></input></td>
+            </tr>
+            <tr class="row" data-row="8">
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="8,0" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="8,1" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="8,2" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="8,3" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="8,4" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="8,5" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="8,6" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="8,7" min="1" max="9"></input></td>
+                <td class="cell"><input type="number" class="cell-display" data-coordinates="8,8" min="1" max="9"></input></td>
+            </tr>
+        </table>
+
+        <!-- <script src="index.js"></script> -->
+
+    </body>
+
+</html>
