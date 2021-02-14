@@ -1,3 +1,4 @@
+/*
 function shuffle( array ) {
     for ( let i = array.length - 1; i > 0; i-- ) {
         const j = Math.floor( Math.random() * ( i + 1 ) );
@@ -51,16 +52,71 @@ function poke( puzzle, grille ) {
     return result;
 }
 
-counter = 0;
-let testSolution = [ undefined ];
-while ( testSolution.flat().includes( undefined ) ) {
-    counter++;
-    testSolution = startingPuzzle();
-    populate( testSolution );
-}
-let testGrille = grille( 64 );
-let testBoard = poke( testSolution, testGrille );
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
-console.log( testBoard );
-console.log( testSolution );
-console.log( counter );
+let solution = [ undefined ];
+while ( solution.flat().includes( undefined ) ) {
+    solution = startingPuzzle();
+    populate( solution );
+}
+let board = poke( solution, grille( 32 ) );
+for ( const row of [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ] ) {
+    for ( const column of [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ] ) {
+        if ( !!board[ row ][ column ] ) {
+            allCells[ row ][ column ].firstElementChild.classList.add( "clue" );
+            allCells[ row ][ column ].firstElementChild.disabled = true;
+            allCells[ row ][ column ].firstElementChild.value = board[ row ][ column ]
+        }
+    }
+}
+*/
+
+const allCells = [
+    [ ...document.querySelector( '[data-row="0"]' ).getElementsByTagName( "td" ) ],
+    [ ...document.querySelector( '[data-row="1"]' ).getElementsByTagName( "td" ) ],
+    [ ...document.querySelector( '[data-row="2"]' ).getElementsByTagName( "td" ) ],
+    [ ...document.querySelector( '[data-row="3"]' ).getElementsByTagName( "td" ) ],
+    [ ...document.querySelector( '[data-row="4"]' ).getElementsByTagName( "td" ) ],
+    [ ...document.querySelector( '[data-row="5"]' ).getElementsByTagName( "td" ) ],
+    [ ...document.querySelector( '[data-row="6"]' ).getElementsByTagName( "td" ) ],
+    [ ...document.querySelector( '[data-row="7"]' ).getElementsByTagName( "td" ) ],
+    [ ...document.querySelector( '[data-row="8"]' ).getElementsByTagName( "td" ) ],
+]
+
+function peers( puzzle, row, column) {
+    let result = puzzle[ row ];
+    const topLeftCorner = [ Math.floor( row / 3 ) * 3, Math.floor( column / 3 ) * 3];
+    result = result.concat( puzzle.map( row => row[ column ] ) );
+    result = result.concat( [ puzzle[ topLeftCorner[ 0 ] ][ topLeftCorner[ 1 ] ],
+        puzzle[ topLeftCorner[ 0 ] ][ topLeftCorner[ 1 ] + 1 ],
+        puzzle[ topLeftCorner[ 0 ] ][ topLeftCorner[ 1 ] + 2 ],
+        puzzle[ topLeftCorner[ 0 ] + 1 ][ topLeftCorner[ 1 ] ],
+        puzzle[ topLeftCorner[ 0 ] + 1 ][ topLeftCorner[ 1 ] + 1 ],
+        puzzle[ topLeftCorner[ 0 ] + 1 ][ topLeftCorner[ 1 ] + 2 ],
+        puzzle[ topLeftCorner[ 0 ] + 2 ][ topLeftCorner[ 1 ] ],
+        puzzle[ topLeftCorner[ 0 ] + 2 ][ topLeftCorner[ 1 ] + 1 ],
+        puzzle[ topLeftCorner[ 0 ] + 2 ][ topLeftCorner[ 1 ] + 2 ] ] );
+    return [ ...new Set( result ) ];
+}
+
+function clearHighlight() {
+    allCells.flat().forEach( cell => cell.classList.remove( "highlight" ) );
+}
+
+function handleDomClick( documentClick ) {
+    if ( documentClick.target.tagName != "INPUT" ) { clearHighlight(); }
+}
+
+function highlightCellPeers( cellClick ) {
+    if ( cellClick.target.tagName === "INPUT" ) {
+        clearHighlight();
+        peers( allCells, parseInt( cellClick.target.closest( "tr" ).dataset.row ), parseInt( cellClick.target.dataset.column ) ).forEach( peer => peer.classList.add( "highlight" ) );
+    }
+}
+
+document.addEventListener( "DOMContentLoaded", () => {
+    document.addEventListener( "click", handleDomClick );
+    document.getElementById( "sudoku-board" ).addEventListener( "click", highlightCellPeers );
+} );
